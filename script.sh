@@ -10,7 +10,7 @@ rm -rf resources-*.yml
 
 # Deploy /bar - 1st run
 echo "==== Deploying bar - 1st run ===="
-aws apigateway get-resources  --rest-api-id $rootId --query=items[].[path,id]  --output text | sort |  gsed '1d' | gsed 's/\t/: /' | gsed 's:^/::'   > resources-service-bar.yml 
+aws apigateway get-resources  --rest-api-id $rootId --query='items[?path!=`/bar`].[path,id]'  --output text | sort |  gsed '1d' | gsed 's/\t/: /' | gsed 's:^/::'   > resources-service-bar.yml 
 echo "-- apiGateway.restApiResources --"
 cat resources-service-bar.yml 
 echo "---------------------------------"
@@ -25,7 +25,7 @@ rm -rf resources-*.yml
 
 # Deploy /foo
 echo "========= Deploying foo ========="
-aws apigateway get-resources  --rest-api-id $rootId --query=items[].[path,id]  --output text | sort |  gsed '1d' | gsed 's/\t/: /' | gsed 's:^/::'   > resources-service-foo.yml 
+aws apigateway get-resources  --rest-api-id $rootId --query='items[?path!=`/foo`].[path,id]'  --output text | sort |  gsed '1d' | gsed 's/\t/: /' | gsed 's:^/::'   > resources-service-foo.yml 
 echo "-- apiGateway.restApiResources --"
 cat resources-service-foo.yml 
 echo "---------------------------------"
@@ -40,7 +40,7 @@ rm -rf resources-*.yml
 
 # Deploy /bar - 2nd  run
 echo "==== Deploying bar - 2nd run ===="
-aws apigateway get-resources  --rest-api-id $rootId --query=items[].[path,id]  --output text | sort |  gsed '1d' | gsed 's/\t/: /' | gsed 's:^/::'     > resources-service-bar.yml 
+aws apigateway get-resources  --rest-api-id $rootId --query='items[?path!=`/bar`].[path,id]'  --output text | sort |  gsed '1d' | gsed 's/\t/: /' | gsed 's:^/::'     > resources-service-bar.yml 
 echo "-- apiGateway.restApiResources --"
 cat resources-service-bar.yml 
 echo "---------------------------------"
@@ -55,7 +55,7 @@ rm -rf resources-*.yml
 
 # Deploy /bar - 3rd run
 echo "==== Deploying bar - 3rd run ===="
-aws apigateway get-resources  --rest-api-id $rootId --query=items[].[path,id]  --output text | sort |  gsed '1d' | gsed 's/\t/: /' | gsed 's:^/::'  > resources-service-bar.yml 
+aws apigateway get-resources  --rest-api-id $rootId --query='items[?path!=`/bar`].[path,id]'  --output text | sort |  gsed '1d' | gsed 's/\t/: /' | gsed 's:^/::'  > resources-service-bar.yml 
 echo "-- apiGateway.restApiResources --"
 cat resources-service-bar.yml 
 echo "---------------------------------"
