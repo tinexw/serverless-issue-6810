@@ -11,3 +11,5 @@ It will
 - Destroy everything
 
 Note that the `restApiResources` property is generated dynamically by querying all available resources from the API gateway. Thus, the list will include the resource itself.
+
+This seems to be the cause of the issue. If the current endpoint is excluded, it is not deleted. See modified [`script.sh`](https://github.com/tinexw/serverless-issue-6810/blob/fix/script.sh).
