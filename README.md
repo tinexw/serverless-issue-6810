@@ -6,7 +6,7 @@ It will
 - Create an API gateway
 - Deploy one HTTP endpoint `/bar`.
 - Deploy another HTTP endpoint `/foo`.
-- Deploy the first endpoint `/bar` again. *This is where the bug occurs* The endpoint is deleted.
+- Deploy the first endpoint `/bar` again. **This is where the bug occurs** The endpoint is deleted.
 - Deploy the first endpoint `/bar` yet again. This will create the endpoint again.
 - Destroy everything
 
