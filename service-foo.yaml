@@ -1,0 +1,22 @@
+service: service-foo
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: dev
+  region: eu-central-1
+  apiGateway:
+    restApiId:
+      'Fn::ImportValue': MyApiGateway-restApiId
+    restApiRootResourceId:
+      'Fn::ImportValue': MyApiGateway-rootResourceId
+    description: Some Description
+    restApiResources: ${file(./resources-service-foo.yml)}    
+
+functions:
+  create:
+    handler: handler.hello
+    events:
+      - http:
+          method: get
+          path: /foo         
