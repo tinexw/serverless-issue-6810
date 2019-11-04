@@ -1,0 +1,21 @@
+service: service-bar-baz2
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: dev
+  region: eu-central-1
+  apiGateway:
+    restApiId:
+      'Fn::ImportValue': MyApiGateway-restApiId
+    restApiRootResourceId:
+      'Fn::ImportValue': MyApiGateway-rootResourceId
+    restApiResources: ${file(./resources-service-bar-baz2.yml)} 
+
+functions:
+  create:
+    handler: handler.hello
+    events:
+      - http:
+          method: get
+          path: /bar/baz2
