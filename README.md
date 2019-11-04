@@ -1,5 +1,7 @@
 Minimal example to reproduce https://github.com/serverless/serverless/issues/6810
 
+Branch [removal-of-unrelated-resource](https://github.com/tinexw/serverless-issue-6810/tree/removal-of-unrelated-resource) contains minimal exmple to reproduce related issue  https://github.com/serverless/serverless/issues/6918
+
 Run `./script.sh`
 
 It will
